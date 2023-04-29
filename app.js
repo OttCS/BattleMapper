@@ -106,9 +106,10 @@ function createOptions(dest, srcArr) {
         let opt = document.createElement("option");
         opt.value = src;
         opt.innerText = src.replace(/(.*\/|\..*)/gi, "");
-        tex[src] = PIXI.Texture.from(src);
         if (opt.value != "") {
             opt.onclick = function () {
+                tex[src] = PIXI.Texture.from(src);
+                console.log("Cached " + src);
                 target.texture = tex[src];
                 last.tex = tex[src];
                 last.rotate = 0;
