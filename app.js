@@ -248,18 +248,6 @@ function saveToLocal() {
         res.push({
             x: (token.x / unit) ^ 0,
             y: (token.y / unit) ^ 0,
-            src: token._texture.baseTexture.cacheId
-        });
-    });
-    localStorage.setItem("quicksave", JSON.stringify(res));
-}
-
-function saveToLocal() {
-    let res = [];
-    tokens.forEach(token => {
-        res.push({
-            x: (token.x / unit) ^ 0,
-            y: (token.y / unit) ^ 0,
             src: token._texture.baseTexture.cacheId,
             rotate: token.rotation
         });
@@ -270,11 +258,18 @@ function saveToLocal() {
 function clearScene() {
     tokens = new Set();
     tokenHold.children = [];
+    saveToLocal();
 }
 
 function loadLocal() {
     clearScene();
-    let src = JSON.parse(localStorage.getItem("quicksave"));
+    let ls = localStorage.getItem("quicksave");
+    if (ls === null) {
+        console.log("No local storage :(");
+        saveToLocal();
+        ls = localStorage.getItem("quicksave");
+    }
+    let src = JSON.parse(ls);
     src.forEach(token => {
         let tk = PIXI.Sprite.from(token.src);
         tk.x = token.x * unit + unit * 0.5;
@@ -285,6 +280,7 @@ function loadLocal() {
         tokens.add(tk);
         tokenHold.addChild(tk);
     });
+
 }
 
 loadLocal();
