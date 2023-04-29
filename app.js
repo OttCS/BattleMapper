@@ -1,5 +1,3 @@
-PIXI.Zephyr.useMouse();
-
 const app = new PIXI.Application({ width: 1920, height: 1080, backgroundColor: 0xffffff, antialias: true });
 
 let inDiag = 23;
@@ -199,7 +197,7 @@ app.ticker.add((deltaTime) => {
         if (PIXI.Mouse.fired('Primary')) {
             holding = null;
             tokens.forEach(token => {
-                if (PIXI.collision.aabb(PIXI.Mouse, token)) {
+                if (PIXI.collision.circle(PIXI.Mouse, token)) {
                     holding = token;
                     ghost.x = token.x;
                     ghost.y = token.y;
@@ -209,7 +207,7 @@ app.ticker.add((deltaTime) => {
         } else if (PIXI.Mouse.fired('Secondary')) {
             target = null;
             tokens.forEach(token => {
-                if (PIXI.collision.aabb(PIXI.Mouse, token))
+                if (PIXI.collision.circle(PIXI.Mouse, token))
                     target = token;
             });
             if (target == null) {
@@ -224,7 +222,7 @@ app.ticker.add((deltaTime) => {
         } else if (PIXI.Mouse.fired('Middle')) {
             target = null;
             tokens.forEach(token => {
-                if (PIXI.collision.aabb(PIXI.Mouse, token))
+                if (PIXI.collision.circle(PIXI.Mouse, token))
                     target = token;
             });
             if (target) {
