@@ -103,6 +103,7 @@ function createOptions(dest, srcArr) {
     opt.innerText = dest.id.replace("-", " ");
     dest.appendChild(opt);
     srcArr.forEach((src) => {
+        if (window.location.href.includes("github")) src = 'https://raw.githubusercontent.com/OttCS/BattleMapper/main/' + src;
         let opt = document.createElement("option");
         opt.value = src;
         opt.innerText = src.replace(/(.*\/|\..*)/gi, "");
