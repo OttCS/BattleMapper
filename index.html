@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BattleMapper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-weight: 600;
+        }
+
+        body {
+            font-family: monospace;
+            display: flex;
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background: #202020;
+            color: #ffffff;
+        }
+
+        #panel {
+            position: absolute;
+            z-index: 999999;
+            bottom: 8px;
+            right: 8px;
+            width: 256px;
+            background: #040201d0;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        #panel>* {
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        #DISPLAY {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            max-width: calc(100vh / 9 * 16);
+            height: 100vh;
+            max-height: calc(100vw / 16 * 9);
+        }
+
+        input, select, button {
+            background: #fff;
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:active {
+            background: #d0d0d0;
+        }
+    </style>
+    <script src="/nightly/pixi.js"></script>
+    <script src="/nightly/zephyr.js"></script>
+</head>
+
+<body>
+    <div id="panel">
+        <h1>BattleMapper</h1>
+        <button onclick="clearScene()">Clear Scene</button>
+        <button onclick="removeToken()">Delete Token</button>
+        <button onclick="rotateToken()">Rotate Token</button>
+        <h2>Characters</h2>
+        <select id="PLAYERS"></select>
+        <select id="NPCS"></select>
+        <select id="MONSTERS"></select>
+        <h2>Environment</h2>
+        <select id="FOREST"></select>
+        <select id="FURNITURE"></select>
+        <select id="ROOFTOP"></select>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
