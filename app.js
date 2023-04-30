@@ -4,6 +4,7 @@ let inDiag = 23;
 let pxDiag = Math.hypot(app.view.width, app.view.height);
 
 const unit = app.view.width / inDiag / app.view.width * pxDiag;
+let scale = { x: unit / 300, y: unit / 300 };
 
 app.view.id = "DISPLAY";
 document.body.appendChild(app.view);
@@ -18,7 +19,7 @@ backdrop.width = app.view.width;
 backdrop.height = app.view.height;
 app.stage.addChild(backdrop);
 
-let ground = new PIXI.TilingSprite(PIXI.Texture.from("backdrop/flagstone.png"));
+let ground = new PIXI.TilingSprite(PIXI.Texture.from("backdrop/parchment.png"));
 ground.width = app.view.width;
 ground.height = app.view.height;
 backdrop.addChild(ground);
@@ -28,7 +29,7 @@ ui.width = app.view.width;
 ui.height = app.view.height;
 
 let grid = new PIXI.Graphics();
-grid.lineStyle(2, 0xffffff, 1);
+grid.lineStyle(2, 0x0, 1);
 let cStyle = {
     fontSize: unit / 5,
     fill: 0x801020,
@@ -122,11 +123,11 @@ function createOptions(dest, srcArr) {
 }
 
 createOptions(document.querySelector("#PLAYERS"), [
-    "players/Arnoul.png",
-    "players/Bea.png",
-    "players/Oreo.png",
-    "players/Shiki.png",
-    "players/Yagi.png",
+    "players/arnoul.png",
+    "players/bea.png",
+    "players/oreo.png",
+    "players/shiki.png",
+    "players/yagi.png",
 ]);
 
 createOptions(document.querySelector("#NPCS"), [
@@ -143,16 +144,153 @@ createOptions(document.querySelector("#MONSTERS"), [
 ]);
 
 createOptions(document.querySelector("#FOREST"), [
-    "environment/forest/Bush 1 - Red.png",
-    "environment/forest/Bush 2 - Green 1.png",
-    "environment/forest/Bush 3 - Green 3.png",
-    "environment/forest/Bush 4 - Green 2.png",
-    "environment/forest/Tree Stump 1 - Cut.png",
-    "environment/forest/Tree Stump 2 - Cut.png",
-    "environment/forest/Tree Stump 3 - Cut.png",
-    "environment/forest/Tree Stump 4 - Cut.png",
-    "environment/forest/Tree Stump 7 - Cut.png",
-    "environment/forest/Water Puddles 2.png",
+    'environment/forest/Bush, 1.png',
+    'environment/forest/Flower 6 - Green 3.png',
+    'environment/forest/Mossy Clump 3 - Green 1.png',
+    'environment/forest/Thorns 1.png',
+    'environment/forest/Bush 1 - Red.png',
+    'environment/forest/Flower 7 - Green 3.png',
+    'environment/forest/Mossy Clump 4 - Green 1.png',
+    'environment/forest/Thorns 2.png',
+    'environment/forest/Bush 2 - Green 1.png',
+    'environment/forest/Flowers 1.png',
+    'environment/forest/Mossy Clump 5 - Green 1.png',
+    'environment/forest/Thorns 3.png',
+    'environment/forest/Bush, 2.png',
+    'environment/forest/Flowers 2.png',
+    'environment/forest/Mossy Clump 6 - Green 1.png',
+    'environment/forest/Thorns 4.png',
+    'environment/forest/Bush 3 - Green 3.png',
+    'environment/forest/Flowers 3.png',
+    'environment/forest/Mushrooms, 1.png',
+    'environment/forest/Thorns 5.png',
+    'environment/forest/Bush 4 - Green 2.png',
+    'environment/forest/Flowers 4.png',
+    'environment/forest/Mushrooms, 2.png',
+    'environment/forest/Tree, 1.png',
+    'environment/forest/Bush 5 - Green 1.png',
+    'environment/forest/Flowers 5.png',
+    'environment/forest/Mushrooms, 3.png',
+    'environment/forest/Tree, 2.png',
+    'environment/forest/Bush 6 - Green 3.png',
+    'environment/forest/Flowers 6.png',
+    'environment/forest/Puddle, 1.png',
+    'environment/forest/Tree, 3.png',
+    'environment/forest/Bush 7 - Green 1.png',
+    'environment/forest/Foliage 10 - Green 1.png',
+    'environment/forest/Puddle, 2.png',
+    'environment/forest/Tree, fallen.png',
+    'environment/forest/Bush 8 - Green 1.png',
+    'environment/forest/Foliage 11 - Green 1.png',
+    'environment/forest/Puddle, 3.png',
+    'environment/forest/Tree Stump 10 - Cut.png',
+    'environment/forest/Bush 9 - Yellow.png',
+    'environment/forest/Foliage 12 - Green 1.png',
+    'environment/forest/Rocks, 1.png',
+    'environment/forest/Tree Stump 10 - Tree.png',
+    'environment/forest/Bush, long, 1.png',
+    'environment/forest/Foliage 13 - Green 1.png',
+    'environment/forest/Rocks, 2.png',
+    'environment/forest/Tree Stump 1 - Cut.png',
+    'environment/forest/Bush, long, 2.png',
+    'environment/forest/Foliage 1 - Green 1.png',
+    'environment/forest/Rocks, 3.png',
+    'environment/forest/Tree Stump 1 - Tree.png',
+    'environment/forest/Cliff 1.png',
+    'environment/forest/Foliage 2 - Green 1.png',
+    'environment/forest/Rocks, 4.png',
+    'environment/forest/Tree Stump 2 - Cut.png',
+    'environment/forest/Cliff 2.png',
+    'environment/forest/Foliage 3 - Green 1.png',
+    'environment/forest/Rocks, 5.png',
+    'environment/forest/Tree Stump 2 - Tree.png',
+    'environment/forest/Cliff 3.png',
+    'environment/forest/Foliage 4 - Green 1.png',
+    'environment/forest/Rocks, 6.png',
+    'environment/forest/Tree Stump 3 - Cut.png',
+    'environment/forest/Clovers, 1.png',
+    'environment/forest/Foliage 5 - Green 1.png',
+    'environment/forest/Rocks, 7.png',
+    'environment/forest/Tree Stump 3 - Tree.png',
+    'environment/forest/Clovers, 2.png',
+    'environment/forest/Foliage 6 - Green 1.png',
+    'environment/forest/Rocks, 8.png',
+    'environment/forest/Tree Stump 4 - Cut.png',
+    'environment/forest/Dirt patch.png',
+    'environment/forest/Foliage 7 - Green 1.png',
+    'environment/forest/Rocky slope, ridge.png',
+    'environment/forest/Tree Stump 4 - Tree.png',
+    'environment/forest/Duff, large.png',
+    'environment/forest/Foliage 8 - Green 1.png',
+    'environment/forest/Soil Patch 1.png',
+    'environment/forest/Tree Stump 5 - Cut.png',
+    'environment/forest/Duff, medium.png',
+    'environment/forest/Foliage 9 - Green 1.png',
+    'environment/forest/Soil Patch 2.png',
+    'environment/forest/Tree Stump 5 - Tree.png',
+    'environment/forest/Duff, small.png',
+    'environment/forest/Grassy slope.png',
+    'environment/forest/Soil Patch 3.png',
+    'environment/forest/Tree Stump 6 - Cut.png',
+    'environment/forest/Fallen Tree 1.png',
+    'environment/forest/Ivy 1 - Green 3.png',
+    'environment/forest/Soil Patch 4.png',
+    'environment/forest/Tree Stump 6 - Tree.png',
+    'environment/forest/Fallen Tree 2.png',
+    'environment/forest/Ivy 2 - Green 3.png',
+    'environment/forest/Soil Patch 5.png',
+    'environment/forest/Tree Stump 7 - Cut.png',
+    'environment/forest/Fallen Tree - Mossy - Green 1.png',
+    'environment/forest/Leaf litter, leaves, 1.png',
+    'environment/forest/Soil Patch 6.png',
+    'environment/forest/Tree Stump 7 - Tree.png',
+    'environment/forest/Fern 1 - Green 3.png',
+    'environment/forest/Leaf litter, leaves, 2.png',
+    'environment/forest/Stone 1.png',
+    'environment/forest/Tree Stump 8 - Cut.png',
+    'environment/forest/Fern 2 - Green 3.png',
+    'environment/forest/Leaf litter, leaves, 3.png',
+    'environment/forest/Stone 2.png',
+    'environment/forest/Tree Stump 8 - Tree.png',
+    'environment/forest/Fern 3 - Green 1.png',
+    'environment/forest/Mossy Boulder 1 - Green 1.png',
+    'environment/forest/Stone 3.png',
+    'environment/forest/Tree Stump 9 - Cut.png',
+    'environment/forest/Fern 4 - Green 1.png',
+    'environment/forest/Mossy Boulder 2 - Green 1.png',
+    'environment/forest/Stump, 1.png',
+    'environment/forest/Tree Stump 9 - Tree.png',
+    'environment/forest/Fern 5 - Green 3.png',
+    'environment/forest/Mossy Boulder 3 - Green 1.png',
+    'environment/forest/Stump, 2.png',
+    'environment/forest/Vine, creeper, 1.png',
+    'environment/forest/Fern 6 - Green 3.png',
+    'environment/forest/Mossy Boulder 4 - Green 1.png',
+    'environment/forest/Stump, 3.png',
+    'environment/forest/Vine, creeper, 2.png',
+    'environment/forest/Fern 7 - Green 3.png',
+    'environment/forest/Mossy Boulder 5 - Green 1.png',
+    'environment/forest/Stump, big.png',
+    'environment/forest/Vine, creeper, 3.png',
+    'environment/forest/Flower 1.png',
+    'environment/forest/Mossy Boulder 6 - Green 1.png',
+    'environment/forest/Thicket, long.png',
+    'environment/forest/Water Puddles 1 - Green 1.png',
+    'environment/forest/Flower 2.png',
+    'environment/forest/Mossy Boulder 7 - Green 1.png',
+    'environment/forest/Thicket.png',
+    'environment/forest/Water Puddles 2.png',
+    'environment/forest/Flower 3.png',
+    'environment/forest/Mossy Boulder 8 - Green 1.png',
+    'environment/forest/Thick Foliage 1 - Green 2.png',
+    'environment/forest/Water Puddles 3.png',
+    'environment/forest/Flower 4.png',
+    'environment/forest/Mossy Clump 1 - Green 1.png',
+    'environment/forest/Thick Foliage 2 - Green 2.png',
+    'environment/forest/Water Puddles 4.png',
+    'environment/forest/Flower 5 - Green 3.png',
+    'environment/forest/Mossy Clump 2 - Green 1.png',
+    'environment/forest/Thick Foliage 3 - Green 2.png'
 ]);
 
 createOptions(document.querySelector("#FURNITURE"), [
@@ -197,17 +335,19 @@ app.ticker.add((deltaTime) => {
         if (PIXI.Mouse.fired('Primary')) {
             holding = null;
             tokens.forEach(token => {
-                if (PIXI.collision.circle(PIXI.Mouse, token)) {
+                if (PIXI.collision.rectangle(PIXI.Mouse, token)) {
                     holding = token;
                     ghost.x = token.x;
                     ghost.y = token.y;
                     ghost.texture = holding.texture;
+                    ghost.width = holding.width;
+                    ghost.height = holding.height;
                 }
             });
         } else if (PIXI.Mouse.fired('Secondary')) {
             target = null;
             tokens.forEach(token => {
-                if (PIXI.collision.circle(PIXI.Mouse, token))
+                if (PIXI.collision.rectangle(PIXI.Mouse, token))
                     target = token;
             });
             if (target == null) {
@@ -222,7 +362,7 @@ app.ticker.add((deltaTime) => {
         } else if (PIXI.Mouse.fired('Middle')) {
             target = null;
             tokens.forEach(token => {
-                if (PIXI.collision.circle(PIXI.Mouse, token))
+                if (PIXI.collision.rectangle(PIXI.Mouse, token))
                     target = token;
             });
             if (target) {
@@ -232,8 +372,8 @@ app.ticker.add((deltaTime) => {
                 target.rotation = last.rotate;
                 target.x = ((PIXI.Mouse.x / unit) ^ 0) * unit + unit * 0.5;
                 target.y = ((PIXI.Mouse.y / unit) ^ 0) * unit + unit * 0.5;
-                target.width = target.height = unit;
                 target.anchor = { x: 0.5, y: 0.5 };
+                target.scale = scale;
                 tokens.add(target);
                 tokenHold.addChild(target);
             }
@@ -243,6 +383,7 @@ app.ticker.add((deltaTime) => {
 });
 
 function saveToLocal() {
+    console.log("Scene saved");
     let res = [];
     tokens.forEach(token => {
         res.push({
@@ -258,29 +399,24 @@ function saveToLocal() {
 function clearScene() {
     tokens = new Set();
     tokenHold.children = [];
-    saveToLocal();
 }
 
 function loadLocal() {
     clearScene();
     let ls = localStorage.getItem("quicksave");
-    if (ls === null) {
-        console.log("No local storage :(");
-        saveToLocal();
-        ls = localStorage.getItem("quicksave");
-    }
-    let src = JSON.parse(ls);
+    let src = JSON.parse(ls ? ls : []);
     src.forEach(token => {
         let tk = PIXI.Sprite.from(token.src);
         tk.x = token.x * unit + unit * 0.5;
         tk.y = token.y * unit + unit * 0.5;
         tk.anchor = { x: 0.5, y: 0.5 };
-        tk.width = tk.height = unit;
+        tk.scale
+        tk.scale = scale;
         tk.rotation = token.rotate;
         tokens.add(tk);
         tokenHold.addChild(tk);
     });
-
+    saveToLocal();
 }
 
 loadLocal();
