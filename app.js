@@ -29,9 +29,10 @@ ui.width = app.view.width;
 ui.height = app.view.height;
 
 let grid = new PIXI.Graphics();
+grid.alpha = 0.25;
 grid.lineStyle(2, 0x0, 1);
 let cStyle = {
-    fontSize: unit / 5,
+    fontSize: unit / 3,
     fill: 0x801020,
     fontWeight: 'bold',
 }
@@ -319,6 +320,63 @@ createOptions(document.querySelector("#ROOFTOP"), [
     "environment/rooftop/Red Roof - Shadow.png",
     "environment/rooftop/Gray Roof.png",
     "environment/rooftop/Gray Roof - Shadow.png",
+]);
+
+createOptions(document.querySelector("#CAMP"), [
+    'environment/CampTokens/Backpack, large.png',
+    'environment/CampTokens/Bedroll, packed, bundle.png',
+    'environment/CampTokens/Bush, shrub, cluster.png',
+    'environment/CampTokens/Campfire, pot, cooking.png',
+    'environment/CampTokens/Cart, luggage.png',
+    'environment/CampTokens/Firewood pile.png',
+    'environment/CampTokens/Log seat, 1.png',
+    'environment/CampTokens/Rock, outcrop.png',
+    'environment/CampTokens/Tent, narrow, 1.png',
+    'environment/CampTokens/Tent, square, 1.png',
+    'environment/CampTokens/Tree, large, 2.png',
+    'environment/CampTokens/Backpack, small.png',
+    'environment/CampTokens/Bucket.png',
+    'environment/CampTokens/Campfire, cooking spit.png',
+    'environment/CampTokens/Campfire ring.png',
+    'environment/CampTokens/Cart, small.png',
+    'environment/CampTokens/Hammock, 1.png',
+    'environment/CampTokens/Log seat, 2.png',
+    'environment/CampTokens/Rock, small, 1.png',
+    'environment/CampTokens/Tent, narrow, 2.png',
+    'environment/CampTokens/Tent, square, 2.png',
+    'environment/CampTokens/Tree shade, large.png',
+    'environment/CampTokens/Bedroll, 1.png',
+    'environment/CampTokens/Bush, shrub, 1.png',
+    'environment/CampTokens/Campfire, fire.png',
+    'environment/CampTokens/Campfire, wood.png',
+    'environment/CampTokens/Clutter, pile, sack.png',
+    'environment/CampTokens/Hammock, 2.png',
+    'environment/CampTokens/Rock, 1.png',
+    'environment/CampTokens/Rock, small, 2.png',
+    'environment/CampTokens/Tent, packed, bundle.png',
+    'environment/CampTokens/Tent, square, 3.png',
+    'environment/CampTokens/Tree shade, small.png',
+    'environment/CampTokens/Bedroll, 2.png',
+    'environment/CampTokens/Bush, shrub, 2.png',
+    'environment/CampTokens/Campfire, hog.png',
+    'environment/CampTokens/Canoe, paddle, 1.png',
+    'environment/CampTokens/Crate, 1.png',
+    'environment/CampTokens/Hammock, 3.png',
+    'environment/CampTokens/Rock, 2.png',
+    'environment/CampTokens/Stump, axe, chopping.png',
+    'environment/CampTokens/Tent, round, large, pavillion.png',
+    'environment/CampTokens/Tent, tarp, shade.png',
+    'environment/CampTokens/Tree, small, 1.png',
+    'environment/CampTokens/Bedroll, 3.png',
+    'environment/CampTokens/Bush, shrub, 3.png',
+    'environment/CampTokens/Campfire.png Canoe.png',
+    'environment/CampTokens/Crate, 2.png',
+    'environment/CampTokens/Log, fallen tree.png',
+    'environment/CampTokens/Rock, 3.png',
+    'environment/CampTokens/Stump.png',
+    'environment/CampTokens/Tent, round, small.png',
+    'environment/CampTokens/Tree, large, 1.png',
+    'environment/CampTokens/Tree, small, 2.png'
 ]);
 
 app.ticker.add((deltaTime) => {
