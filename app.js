@@ -110,7 +110,6 @@ function createOptions(dest, srcArr) {
         if (opt.value != "") {
             opt.onclick = function () {
                 tex[src] = PIXI.Texture.from(src);
-                console.log("Cached " + src);
                 target.texture = tex[src];
                 last.tex = tex[src];
                 last.rotate = 0;
@@ -472,7 +471,6 @@ app.ticker.add((deltaTime) => {
 });
 
 function saveToLocal() {
-    console.log("Scene saved");
     let res = [];
     tokens.forEach(token => {
         res.push({
