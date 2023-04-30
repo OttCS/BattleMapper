@@ -322,6 +322,37 @@ createOptions(document.querySelector("#ROOFTOP"), [
     "environment/rooftop/Gray Roof - Shadow.png",
 ]);
 
+createOptions(document.querySelector("#TREETOPS"), [
+'environment/Treetops/Bare tree - Large A.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Small - Green 1.png',
+'environment/Treetops/Upper limb 1.png',
+'environment/Treetops/Bare tree - Medium A.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Small - Green 2.png',
+'environment/Treetops/Upper limb 2.png',
+'environment/Treetops/Bare tree - Small A.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Small - Green 3.png',
+'environment/Treetops/Upper limb 3.png',
+'environment/Treetops/Tree - Coniferous - Stacked example.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Stacked example.png',
+'environment/Treetops/Upper limb 4.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Large - Green 1.png',
+'environment/Treetops/Tree - Top-down - Coniferous - Large - Green 1.png',
+'environment/Treetops/Upper limb 5.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Large - Green 2.png',
+'environment/Treetops/Tree - Top-down - Coniferous - Large - Green 2.png',
+'environment/Treetops/Upper limb 6.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Large - Green 3.png',
+'environment/Treetops/Tree - Top-down - Coniferous - Large - Green 3.png',
+'environment/Treetops/Upper limb 7.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Medium - Green 1.png',
+'environment/Treetops/Tree - Top-down - Coniferous - Small - Green 1.png',
+'environment/Treetops/Upper limb 8.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Medium - Green 2.png',
+'environment/Treetops/Tree - Top-down - Coniferous - Small - Green 2.png',
+'environment/Treetops/Tree - Top-down - Broadleaf - Medium - Green 3.png',
+'environment/Treetops/Tree - Top-down - Coniferous - Small - Green 3.png' 
+]);
+
 createOptions(document.querySelector("#CAMP"), [
     'environment/CampTokens/Backpack, large.png',
     'environment/CampTokens/Bedroll, packed, bundle.png',
